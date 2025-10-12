@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 interface Props {
   className?: string;
   iconClassName?: string;
-  tooltipClassName: string;
+  tooltipClassName?: string;
 }
 const socialLink = [
   {
