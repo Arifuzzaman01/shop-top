@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import Header from "@/components/header/Header";
-import Footer from "@/components/Footer";
+
 import { ClerkProvider } from "@clerk/nextjs";
+import Footer from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +22,7 @@ export default function RootLayout({
         <body className="font-poppins antialiased ">
           <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-1"> {children}</main>
+            <main > {children}</main>
             <Footer />
           </div>
         </body>
