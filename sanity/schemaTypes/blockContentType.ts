@@ -1,28 +1,29 @@
+import { ImageIcon } from '@sanity/icons';
 import { defineArrayMember, defineType } from "sanity";
 
-const blogContentType = defineType({
-    title: 'Blog Content',
-    name: 'blog',
+export const blockContentType = defineType({
+    title: 'Block Content',
+    name: 'blockContent',
     type: 'array',
-    of:[
+    of: [
         defineArrayMember({
             type: 'block',
             styles: [
-                {title: 'Normal', value: 'normal'},
-                {title: 'H1', value: 'h1'},
-                {title: 'H2', value: 'h2'},
-                {title: 'H3', value: 'h3'},
-                {title: 'H4', value: 'h4'},
-                {title: 'Quote', value: 'blockquote'},
+                { title: 'Normal', value: 'normal' },
+                { title: 'H1', value: 'h1' },
+                { title: 'H2', value: 'h2' },
+                { title: 'H3', value: 'h3' },
+                { title: 'H4', value: 'h4' },
+                { title: 'Quote', value: 'blockquote' },
             ],
             lists: [
-                {title: 'Bullet', value: 'bullet'},
-                
+                { title: 'Bullet', value: 'bullet' },
+
             ],
             marks: {
                 decorators: [
-                    {title: 'Strong', value: 'strong'},
-                    {title: 'Emphasis', value: 'em'},
+                    { title: 'Strong', value: 'strong' },
+                    { title: 'Emphasis', value: 'em' },
                 ],
                 annotations: [
                     {
@@ -30,7 +31,7 @@ const blogContentType = defineType({
                         name: 'link',
                         type: 'object',
                         fields: [
-                            {title: 'URL', name: 'href', type: 'url'},
+                            { title: 'URL', name: 'href', type: 'url' },
                         ]
                     }
                 ]
@@ -38,6 +39,7 @@ const blogContentType = defineType({
         }),
         defineArrayMember({
             type: 'image',
+            icon: ImageIcon,
             options: {
                 hotspot: true,
             },
