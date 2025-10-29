@@ -7,6 +7,7 @@ import SocialMedia from "../SocialMedia";
 import { SubText, SubTitle } from "../ui/text";
 import { CategoriesData, QuickLinkData } from "@/constants/data";
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 function Footer() {
   return (
@@ -56,8 +57,19 @@ function Footer() {
               ))}
             </ul>
           </div>
-          <div>pending...</div>
-       
+          <div className="space-y-4">
+            <SubTitle>News Letter</SubTitle>
+            <SubText>Subscribe to our newsletter to receive latest update and exclusive offers.</SubText>
+            <form >
+              <input type="text" placeholder="Enter your email" required className="w-full mt-4 px-4 py-2 border border-darkColor/60 rounded-md focus:outline-none focus:border-shop_light_green" />
+              <Button className="bg-shop_dark_green text-white mt-4 w-full">Subscribe</Button>
+            </form>
+          </div>
+
+        </div>
+        <div className="py-6 border-t border-darkColor/60 text-center text-sm text-gray-600">
+          <div className="text-center text-darkColor/60 font-wider hover:text-shop_dark_green hoverEffect group uppercase">© {new Date().getFullYear()} {""}
+            <Logo className="text-sm"/>  All rights reserved.</div>
         </div>
       </Container>
     </footer>
