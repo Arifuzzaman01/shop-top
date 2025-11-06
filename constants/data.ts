@@ -26,7 +26,7 @@ export const productTypes =[
     // {title: "All",value: "all"},
     {title: "Gadget", value: "gadget" },
     {title: "Appliances", value: "appliance" },
-    {title: "Refrigerators", value: "refrigerator" },
+    {title: "Refrigerators", value: "refrigerators" },
     {title: "Others", value: "others" },
 ]
 
