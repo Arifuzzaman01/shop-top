@@ -1,4 +1,3 @@
-import { SubTitle } from "@/components/ui/text";
 import { defineField, defineType } from "sanity";
 
 export const brandType = defineType({ 
@@ -36,7 +35,7 @@ export const brandType = defineType({
     preview:{
         select:{
             title: "title",
-            SubTitle: "description",
+            subtitle: "description",
             media: "image"
         }
     }

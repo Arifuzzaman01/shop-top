@@ -3,7 +3,7 @@ import { DocumentTextIcon } from "@sanity/icons";
 
 export const blogType = defineType({
     name: "blogType",
-    title: "Blog ",
+    title: "Blog",
     type: "document",
     icon: DocumentTextIcon,
     fields: [
@@ -72,7 +72,7 @@ export const blogType = defineType({
             const { author, isLatest } = selection;
             return {
                 ...selection,
-                subtitle: author && `by ${isLatest ? "Latest |" : ""} Ny ${author}`,
+                subtitle: author && `by ${isLatest ? "Latest |" : ""} ${author}`,
             };
         }
 
