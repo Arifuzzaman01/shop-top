@@ -15,7 +15,7 @@ async function Header() {
   const user = await currentUser();
   // console.log(user, "user");
   return (
-    <header className="bg-white py-4 ">
+    <header className="bg-white/70 py-4 sticky top-0 z-50 backdrop-blur-md">
       <Container className="flex items-center justify-between">
         {/* logo */}
         <div className="w-auto md:w-1/3 flex justify-start items-center  gap-2.5 md:gap-0">

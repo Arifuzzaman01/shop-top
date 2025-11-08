@@ -434,7 +434,7 @@
         },
         "optional": true
       },
-      "category": {
+      "categories": {
         "type": "objectAttribute",
         "value": {
           "type": "array",
@@ -555,7 +555,7 @@
             },
             {
               "type": "string",
-              "value": "refrigerator"
+              "value": "refrigerators"
             },
             {
               "type": "string",

@@ -79,7 +79,7 @@ export type Product = {
   description?: string;
   price?: number;
   discount?: number;
-  category?: Array<{
+  categories?: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -94,7 +94,7 @@ export type Product = {
     [internalGroqTypeReferenceTo]?: "brand";
   };
   status?: "new" | "outOfStock" | "hot" | "sales";
-  variant?: "gadget" | "appliances" | "refrigerator" | "others";
+  variant?: "gadget" | "appliances" | "refrigerators" | "others";
   isFeatured?: boolean;
 };
 
