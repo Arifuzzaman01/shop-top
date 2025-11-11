@@ -433,3 +433,29 @@ export type SanityAssetSourceData = {
 
 export type AllSanitySchemaTypes = Order | Product | Brand | BlogType | Author | BlockContent | BlogCategory | Address | Category | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: ./sanity/quries/query.ts
+// Variable: BRAND_QUERY
+// Query: *[_type == "brand"] | order(title asc) {  _id,  _type,  title,  slug,  description,  image{    asset->{      _id,      url,      metadata    },    alt  }}
+export type BRAND_QUERYResult = Array<{
+  _id: string;
+  _type: "brand";
+  title: string | null;
+  slug: Slug | null;
+  description: string | null;
+  image: {
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: SanityImageMetadata | null;
+    } | null;
+    alt: null;
+  } | null;
+}>;
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    "*[_type == \"brand\"] | order(title asc) {\n  _id,\n  _type,\n  title,\n  slug,\n  description,\n  image{\n    asset->{\n      _id,\n      url,\n      metadata\n    },\n    alt\n  }\n}": BRAND_QUERYResult;
+  }
+}

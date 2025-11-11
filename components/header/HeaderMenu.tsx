@@ -6,7 +6,7 @@ import React from "react";
 
 function HeaderMenu() {
   const pathName = usePathname();
-  console.log(pathName);
+  // console.log(pathName);
   return (
     <div className="hidden md:inline-flex justify-end w-1/3 gap-6 text-sm font-semibold capitalize text-lightColor">
       {HeaderData?.map((item) => (
