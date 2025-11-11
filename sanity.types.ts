@@ -121,9 +121,9 @@ export type Brand = {
   };
 };
 
-export type BlogType = {
+export type Blog = {
   _id: string;
-  _type: "blogType";
+  _type: "blog";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -431,7 +431,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = Order | Product | Brand | BlogType | Author | BlockContent | BlogCategory | Address | Category | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Order | Product | Brand | Blog | Author | BlockContent | BlogCategory | Address | Category | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/quries/query.ts
 // Variable: BRAND_QUERY
@@ -451,11 +451,77 @@ export type BRAND_QUERYResult = Array<{
     alt: null;
   } | null;
 }>;
+// Variable: LATEST_BLOG_QUERY
+// Query: *[_type == "blog" && isLatest == true] | order(name asc){  ...,  mainImage{    asset->{      _id,      url,      metadata    }  },  blogcategories[]->{  title}  }
+export type LATEST_BLOG_QUERYResult = Array<{
+  _id: string;
+  _type: "blog";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  author?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "author";
+  };
+  mainImage: {
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: SanityImageMetadata | null;
+    } | null;
+  } | null;
+  blogCategories?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "blogCategory";
+  }>;
+  publishedAt?: string;
+  isLatest?: boolean;
+  body?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  blogcategories: null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"brand\"] | order(title asc) {\n  _id,\n  _type,\n  title,\n  slug,\n  description,\n  image{\n    asset->{\n      _id,\n      url,\n      metadata\n    },\n    alt\n  }\n}": BRAND_QUERYResult;
+    "*[_type == \"blog\" && isLatest == true] | order(name asc){\n  ...,\n  mainImage{\n    asset->{\n      _id,\n      url,\n      metadata\n    }\n  },\n  blogcategories[]->{\n  title}\n  }": LATEST_BLOG_QUERYResult;
   }
 }

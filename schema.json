@@ -703,7 +703,7 @@
     }
   },
   {
-    "name": "blogType",
+    "name": "blog",
     "type": "document",
     "attributes": {
       "_id": {
@@ -716,7 +716,7 @@
         "type": "objectAttribute",
         "value": {
           "type": "string",
-          "value": "blogType"
+          "value": "blog"
         }
       },
       "_createdAt": {

@@ -2,7 +2,7 @@ import { defineField, defineType } from "sanity";
 import { DocumentTextIcon } from "@sanity/icons";
 
 export const blogType = defineType({
-    name: "blogType",
+    name: "blog",
     title: "Blog",
     type: "document",
     icon: DocumentTextIcon,

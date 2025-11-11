@@ -6,6 +6,7 @@ import React from "react";
 import HomeCategories from "@/components/home/HomeCategories";
 import { getCategories } from "@/sanity/quries";
 import ShopByBrand from "@/components/brand/ShopByBrand";
+import LatestBlog from "@/components/blog/LatestBlog";
 
 async function page() {
   const categories = await getCategories(6);
@@ -16,6 +17,7 @@ async function page() {
         <ProductGrid />
         <HomeCategories categories={categories} />
         <ShopByBrand />
+        <LatestBlog />
       </div>
     </Container>
   );
