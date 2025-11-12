@@ -29,5 +29,9 @@ const LATEST_BLOG_QUERY =
   blogcategories[]->{
   title}
   }`);
+const DEAL_PRODUCT =
+  defineQuery(`*[_type == 'product' && status == 'hot'] | order(name asc){
+    ..., "categories": categories[]->title
+    }`);
 
-export { BRAND_QUERY, LATEST_BLOG_QUERY };
+export { BRAND_QUERY, LATEST_BLOG_QUERY, DEAL_PRODUCT };

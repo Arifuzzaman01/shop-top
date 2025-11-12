@@ -12,7 +12,7 @@ import AddToCartButton from "./addToCard/AddToCartButton";
 const ProductCard = ({ product }: { product: Product }) => {
   // console.log(product?.category );
   return (
-    <div className="text-sm border-[1px] border-dark_blue/20 rounded-md bg-white group">
+    <div className="text-sm border-[1px] border-dark_blue/20 rounded-md overflow-hidden bg-white group">
       <div className="relative group overflow-hidden bg-shop_light_bg">
         {product?.image && (
           <Image

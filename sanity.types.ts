@@ -516,6 +516,44 @@ export type LATEST_BLOG_QUERYResult = Array<{
   }>;
   blogcategories: null;
 }>;
+// Variable: DEAL_PRODUCT
+// Query: *[_type == 'product' && status == 'hot'] | order(name asc){    ..., "categories": categories[]->title    }
+export type DEAL_PRODUCTResult = Array<{
+  _id: string;
+  _type: "product";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  image?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
+  description?: string;
+  price?: number;
+  discount?: number;
+  categories: Array<string | null> | null;
+  stock?: number;
+  brand?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "brand";
+  };
+  status?: "hot" | "new" | "outOfStock" | "sales";
+  variant?: "appliances" | "gadget" | "others" | "refrigerators";
+  isFeatured?: boolean;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -523,5 +561,6 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"brand\"] | order(title asc) {\n  _id,\n  _type,\n  title,\n  slug,\n  description,\n  image{\n    asset->{\n      _id,\n      url,\n      metadata\n    },\n    alt\n  }\n}": BRAND_QUERYResult;
     "*[_type == \"blog\" && isLatest == true] | order(name asc){\n  ...,\n  mainImage{\n    asset->{\n      _id,\n      url,\n      metadata\n    }\n  },\n  blogcategories[]->{\n  title}\n  }": LATEST_BLOG_QUERYResult;
+    "*[_type == 'product' && status == 'hot'] | order(name asc){\n    ..., \"categories\": categories[]->title\n    }": DEAL_PRODUCTResult;
   }
 }
