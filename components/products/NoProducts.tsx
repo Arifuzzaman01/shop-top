@@ -13,7 +13,7 @@ const NoProducts = ({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center py-10 min-h-80 text-center bg-gray-100 rounded-lg mt-10 w-full",
+        "flex flex-col items-center justify-center py-10 min-h-80 text-center bg-gray-100 rounded-lg mt-10 w-full space-y-2",
         className
       )}
     >
@@ -33,7 +33,7 @@ const NoProducts = ({
         className="text-gray-600"
       >
         We are sorry, but there are no products matching on
-        <span className="text-base font-semibold text-darkColor">
+        <span className="text-base font-semibold text-darkColor px-1">
           {selectedTab}
         </span>
         criteria at the moment.
